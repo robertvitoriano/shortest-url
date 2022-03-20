@@ -4,7 +4,6 @@ const prodVariables = {
   MYSQL_DATABASE: process.env.MYSQL_DATABASE,
   MYSQL_HOST: process.env.MYSQL_HOST,
   MYSQL_PORT: process.env.MYSQL_PORT,
-  PORT:process.env.PORT
 }
 
 module.exports = { prodVariables }
