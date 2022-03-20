@@ -1,4 +1,4 @@
-class ShortUrlUseCase {
+class EncodesUrlUseCase {
 
   constructor() { }
 
@@ -8,4 +8,4 @@ class ShortUrlUseCase {
 
 }
 
-export default ShortUrlUseCase;
+export default EncodesUrlUseCase;

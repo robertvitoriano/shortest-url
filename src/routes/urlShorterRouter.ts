@@ -1,13 +1,12 @@
 import { Router } from "express";
 
-import { redirectShortController, } from "../UseCases/RedirectShortUseCase";
-import { shortUrlController } from "../UseCases/ShortUrlUseCase";
+import { decodesShortnedUrlController} from "../UseCases/DecodesShortnedUrlUseCase";
+import { shortUrlController } from "../UseCases/EncodesUrlUseCase";
 
 const urlShorterRouter = Router()
 
 urlShorterRouter.post('/', shortUrlController.handle)
 
-urlShorterRouter.get('/', redirectShortController.handle)
-
+urlShorterRouter.get('/', decodesShortnedUrlController.handle)
 
 export { urlShorterRouter }

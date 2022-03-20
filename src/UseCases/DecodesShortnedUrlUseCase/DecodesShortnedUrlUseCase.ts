@@ -1,4 +1,4 @@
-class RedirectShortUseCase {
+class DecodesShortnedUrlUseCase {
 
   constructor( ) { }
 
@@ -7,4 +7,4 @@ class RedirectShortUseCase {
   }
 }
 
-export default RedirectShortUseCase;
+export default DecodesShortnedUrlUseCase;

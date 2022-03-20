@@ -1,15 +1,15 @@
 import {Request, Response } from 'express'
-import ShortUrlUseCase from './ShortUrlUseCase'
-class ShortUrlController {
+import EncodesUrlUseCase from './EncodesUrlUseCase'
+class EncodesUrlController {
 
-  constructor(private shortUrlUseCase:ShortUrlUseCase){}
+  constructor(private encodesUrlUseCase:EncodesUrlUseCase){}
 
   handle = (request:Request, response:Response)=>{
 
     const {url} = request.body
 
     try{
-      const resultString = this.shortUrlUseCase.execute(url)
+      const resultString = this.encodesUrlUseCase.execute(url)
 
       return response.status(200).send({message:'Url Shortned', shortUrl:resultString});
     }catch(error){
@@ -20,4 +20,4 @@ class ShortUrlController {
   }
 }
 
-export default ShortUrlController
+export default EncodesUrlController
