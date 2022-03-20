@@ -1,10 +1,11 @@
 import express from 'express'
 import morgan from 'morgan'
+import {urlShorterRouter} from './routes'
 
-import './database'
 
 const app = express()
 
+app.use(urlShorterRouter)
 app.use(express.json())
 app.use(morgan('tiny'))
 

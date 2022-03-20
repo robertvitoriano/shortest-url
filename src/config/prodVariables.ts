@@ -6,4 +6,4 @@ const prodVariables = {
   MYSQL_PORT: process.env.MYSQL_PORT,
 }
 
-module.exports = { prodVariables }
+export { prodVariables }

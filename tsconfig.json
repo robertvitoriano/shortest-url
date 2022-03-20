@@ -3,7 +3,7 @@
     "target": "es2017",
     "module": "commonjs",
     "strict": false,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "outDir": "./build",
     "esModuleInterop": true,
     "experimentalDecorators": true,
