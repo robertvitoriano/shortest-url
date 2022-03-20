@@ -1,6 +1,6 @@
 class DecodesShortnedUrlUseCase {
 
-  constructor( ) { }
+  constructor() { }
 
   public execute(shortnedUrl: string): string {
     return shortnedUrl

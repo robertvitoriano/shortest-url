@@ -1,20 +1,20 @@
-import {Request, Response } from 'express'
+import { Request, Response } from 'express'
 import EncodesUrlUseCase from './EncodesUrlUseCase'
 class EncodesUrlController {
 
-  constructor(private encodesUrlUseCase:EncodesUrlUseCase){}
+  constructor(private encodesUrlUseCase: EncodesUrlUseCase) { }
 
-  handle = (request:Request, response:Response)=>{
+  handle = (request: Request, response: Response) => {
 
-    const {url} = request.body
+    const { url } = request.body
 
-    try{
+    try {
       const resultString = this.encodesUrlUseCase.execute(url)
 
-      return response.status(200).send({message:'Url Shortned', shortUrl:resultString});
-    }catch(error){
+      return response.status(200).send({ message: 'Url Shortned', shortUrl: resultString });
+    } catch (error) {
 
-      return response.status(400).send({errorMessage:error.message})
+      return response.status(400).send({ errorMessage: error.message })
     }
 
   }

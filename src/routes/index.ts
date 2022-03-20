@@ -1,5 +1,5 @@
-import {urlShorterRouter} from './urlShorterRouter';
+import { urlShorterRouter } from './urlShorterRouter';
 
 export {
-    urlShorterRouter
+  urlShorterRouter
 }
