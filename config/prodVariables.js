@@ -7,4 +7,4 @@ const prodVariables = {
   PORT:process.env.PORT
 }
 
-export { prodVariables }
+module.exports = { prodVariables }
