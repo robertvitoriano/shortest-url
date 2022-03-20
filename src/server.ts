@@ -1,5 +1,6 @@
 import { app } from './app'
+import { variables } from './config/variables'
 
-app.listen(3000,()=>{
-  console.log('My application is running')
+app.listen(variables.PORT,()=>{
+  console.log('My application is running '+ variables.PORT)
 })
