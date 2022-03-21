@@ -1,7 +1,5 @@
 import { Optional } from "sequelize/types";
 
-
-
 export interface ShortUrlModelAttributes {
   id: number;
   originalUrl: string;
