@@ -9,11 +9,15 @@ export const ShortUrlModel = db.define('short_url', {
     autoIncrement: true,
     allowNull: false
   },
-  full: {
+  originalUrl: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  short: {
+  urlCode: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  shortUrl: {
     type: DataTypes.STRING,
     allowNull: false
   },

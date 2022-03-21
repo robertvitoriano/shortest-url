@@ -5,8 +5,8 @@ import {urlShorterRouter} from './routes'
 
 const app = express()
 
-app.use(urlShorterRouter)
 app.use(express.json())
+app.use(urlShorterRouter)
 app.use(morgan('tiny'))
 
 export { app }

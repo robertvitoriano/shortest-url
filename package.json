@@ -18,9 +18,11 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.17.0",
     "sequelize-cli": "^6.4.1",
+    "short-id": "^0.1.0-1",
     "supertest": "^6.1.3",
     "ts-node": "^9.1.1",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "valid-url": "^1.0.9"
   },
   "scripts": {
     "tsc": "tsc",
