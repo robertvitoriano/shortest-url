@@ -19,5 +19,15 @@ describe("Shorts Url", () => {
     expect(savedShortUrl.shortUrl).toEqual(expect.stringMatching(/stackoverflow\.com\/([0-9a-f]+)/));
   });
 
+  it("Should throw give 'Invalid Url' error if the url is not valid ", async () => {
+    const url = "https://stackoverfl";
+  
+     const tryEncodeInvalidUrl = async ()=>{
+      await inMemoryEncodesUrlUseCase.execute(url);
+    }
+    expect(tryEncodeInvalidUrl).rejects.toBeInstanceOf(Error)
+    expect(tryEncodeInvalidUrl).rejects.toMatchObject({message:'Invalid Url'});
+  });
+
 
 });
