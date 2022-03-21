@@ -19,7 +19,8 @@ describe("Shorts Url", () => {
   });
 
   afterEach(async () => {
-    return sequelizeRepository.clear();
+    sequelizeRepository.clear();
+    await db.sync({ force: true });
   });
 
   it("Should be able to short a given url in tests database", async () => {
