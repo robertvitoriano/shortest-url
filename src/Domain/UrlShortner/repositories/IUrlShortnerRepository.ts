@@ -9,8 +9,8 @@ interface IShortenedUrl{
 
 interface  IUrlShortnerRepository {
 
-  findOne (shortnedUrl:IShortenedUrl): Promise<IShortenedUrl>
-  create ( shortnedUrl: IShortenedUrl): Promise<string>
+  findOne (shortnedUrl:IShortenedUrl): Promise<IShortenedUrl> | IShortenedUrl | null;
+  create ( shortnedUrl: IShortenedUrl): Promise<string> | string
 
 }
 

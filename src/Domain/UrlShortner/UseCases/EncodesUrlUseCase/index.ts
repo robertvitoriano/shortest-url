@@ -5,6 +5,6 @@ import { ShortUrlModel } from "../../models/ShortUrlModel";
 
 const sequelizeRepository = new SequelizeRepository(ShortUrlModel);
 const encodesUrlUseCase = new EncodesUrlUseCase(sequelizeRepository)
-const shortUrlController = new EncodesUrlController(encodesUrlUseCase)
+const encodesUrlController = new EncodesUrlController(encodesUrlUseCase)
 
-export  {shortUrlController, encodesUrlUseCase}
+export  {encodesUrlController, encodesUrlUseCase}
