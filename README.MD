@@ -40,10 +40,9 @@ This project was built with nodejs typescript, express and sequelize. It's a sim
     Given the url as: stackoverflow.com/120899
 
     It must return something similar to:
-
-  {
-    "url": "https://stackoverflow.com/questions/71553537/how-to-find-nearest-nearest-place-by-lat-long-quickly"
-  }
+    {
+      url: "https://stackoverflow.com/questions/71553537/how-to-find-nearest-nearest-place-by-lat-long-quickly"
+    }
 
 
 
