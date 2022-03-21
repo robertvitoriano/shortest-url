@@ -10,9 +10,9 @@ class InMemoryRepository implements IUrlShortnerRepository{
     for(const key in shortnedUrl){
       if(shortnedUrl[key]){
         shortnedUrlInstance = this.shortnedUrls.find(url => url[key] === shortnedUrl[key]);
+        return shortnedUrlInstance
       }
     }
-    return shortnedUrlInstance
   }
   create(shortnedUrl: IShortenedUrl): string {
     const shortnedUrlCreated = {
