@@ -11,8 +11,8 @@ class InMemoryRepository implements IUrlShortnerRepository{
       if(shortnedUrl[key]){
         shortnedUrlInstance = this.shortnedUrls.find(url => url[key] === shortnedUrl[key]);
       }
-      return shortnedUrlInstance
     }
+    return shortnedUrlInstance
   }
   create(shortnedUrl: IShortenedUrl): string {
     const shortnedUrlCreated = {
@@ -22,6 +22,10 @@ class InMemoryRepository implements IUrlShortnerRepository{
     };
     this.shortnedUrls.push(shortnedUrlCreated);
     return shortnedUrlCreated.shortUrl;
+  }
+
+  clear(): void {
+    this.shortnedUrls = [];
   }
 }
 
