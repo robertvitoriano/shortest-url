@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 
-import { db } from '../database/configuration';
+import { db } from '../../../database/configuration';
 
 export const ShortUrlModel = db.define('short_url', {
   id: {

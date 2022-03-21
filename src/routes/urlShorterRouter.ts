@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { decodesShortnedUrlController } from "../UseCases/DecodesShortnedUrlUseCase";
-import { shortUrlController } from "../UseCases/EncodesUrlUseCase";
+import { decodesShortnedUrlController } from "../Domain/UrlShortner/UseCases/DecodesShortnedUrlUseCase";
+import { shortUrlController } from "../Domain/UrlShortner/UseCases/EncodesUrlUseCase";
 
 const urlShorterRouter = Router()
 
