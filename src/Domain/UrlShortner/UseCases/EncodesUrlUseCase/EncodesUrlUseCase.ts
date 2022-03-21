@@ -6,27 +6,27 @@ class EncodesUrlUseCase {
   constructor() { }
 
   public async execute(url: string): Promise<string> {
+
+    if (!validUrl.isUri(url)) throw new Error('Invalid Url');
     const shortUrls = await ShortUrlModel.findAll();
-    const urlAlreadySaved = shortUrls.some((shortUrl:any) => shortUrl.originalUrl === url);
-    if (validUrl.isUri(url) && !urlAlreadySaved){  
+    const urlAlreadySaved = shortUrls.find((shortUrl: any) => shortUrl.originalUrl === url);
+    if (!urlAlreadySaved) {
       const urlCode = shortId.generate();
 
-      const shortBaseUrl = url.replace('http://', '').split('/')[0];
+      const shortBaseUrl = url.replace('http://', '').split('/')[2];
       const shortUrl = `${shortBaseUrl}/${urlCode}`;
 
-      const shortUrlInstance = await ShortUrlModel.create({
+      await ShortUrlModel.create({
         originalUrl: url,
         urlCode,
         shortUrl
       })
 
-      await shortUrlInstance.save();
-
       return shortUrl;
 
     }
 
-    return 'Invalid Url';
+    return urlAlreadySaved.shortUrl
   }
 
 }
