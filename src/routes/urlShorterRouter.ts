@@ -7,6 +7,6 @@ const urlShorterRouter = Router()
 
 urlShorterRouter.post('/', shortUrlController.handle)
 
-urlShorterRouter.get('/', decodesShortnedUrlController.handle)
+urlShorterRouter.get('/:baseUrl/:urlCode', decodesShortnedUrlController.handle)
 
 export { urlShorterRouter }

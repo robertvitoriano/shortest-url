@@ -6,10 +6,10 @@ class DecodesShortnedUrlController {
 
   handle = async (request: Request, response: Response) => {
 
-    const { shortnedUrl } = request.body
+    const { baseUrl, urlCode } = request.params
 
     try {
-      const fullUrl = await this.decodesShortnedUrlUseCase.execute(shortnedUrl)
+      const fullUrl = await this.decodesShortnedUrlUseCase.execute({baseUrl, urlCode})
 
       return response.status(200).json({ url: fullUrl })
 

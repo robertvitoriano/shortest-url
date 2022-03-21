@@ -23,12 +23,9 @@ class EncodesUrlUseCase {
       })
 
       return shortUrl;
-
     }
-
     return urlAlreadySaved.shortUrl
   }
-
 }
 
 export default EncodesUrlUseCase;
