@@ -1,17 +1,16 @@
 import validUrl from 'valid-url';
 import shortId from 'short-id'
 import { ShortUrlModel } from '../../models/ShortUrlModel';
+import { IUrlShortnerRepository } from "../../repositories/IUrlShortnerRepository";
 class EncodesUrlUseCase {
 
-  constructor() { }
+  constructor(private urlShortnerRepository:IUrlShortnerRepository) { }
 
   public async execute(url: string): Promise<string> {
 
     if (!validUrl.isWebUri(url)) throw new Error('Invalid Url');
 
-    const shortUrls = await ShortUrlModel.findAll();
-
-    const urlAlreadySaved = shortUrls.find((shortUrl: any) => shortUrl.originalUrl === url);
+    const urlAlreadySaved = await this.urlShortnerRepository.findOne({originalUrl:url});
     
     if (!urlAlreadySaved) {
       const urlCode = shortId.generate();
@@ -19,7 +18,7 @@ class EncodesUrlUseCase {
       const shortBaseUrl = url.replace('http://', '').replace('www.', '').split('/')[2];
       const shortUrl = `${shortBaseUrl}/${urlCode}`;
 
-      await ShortUrlModel.create({
+      await this.urlShortnerRepository.create({
         originalUrl: url,
         urlCode,
         shortUrl

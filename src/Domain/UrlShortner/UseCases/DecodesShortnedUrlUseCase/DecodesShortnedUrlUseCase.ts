@@ -2,21 +2,15 @@ interface shortnedUrlObject {
   baseUrl: string;
   urlCode: string;
 }
-
-import { ShortUrlModel } from "../../models/ShortUrlModel";
+import { IUrlShortnerRepository } from "../../repositories/IUrlShortnerRepository";
 class DecodesShortnedUrlUseCase {
 
-  constructor() { }
+  constructor(private urlShortnerRepository:IUrlShortnerRepository) { }
 
   public async execute({baseUrl, urlCode}: shortnedUrlObject): Promise<string> {
-    const shortnedUrl = `${baseUrl}/${urlCode}`
+    const shortUrl = `${baseUrl}/${urlCode}`
 
-    const shortnedUrlInstance = await ShortUrlModel.findOne({
-      where: {
-        urlCode,
-        shortUrl: shortnedUrl,
-      }
-    })
+    const shortnedUrlInstance = await this.urlShortnerRepository.findOne({shortUrl})
 
     if (!shortnedUrlInstance) throw new Error('Invalid Url');
 
