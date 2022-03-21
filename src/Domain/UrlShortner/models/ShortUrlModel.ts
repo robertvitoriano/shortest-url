@@ -1,8 +1,22 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 
-import { db } from '../../../database/configuration';
+import sequelizeConnection from './../../../database/configuration';
+import { ShortUrlModelAttributes, ShortUrlModelInput } from './IShortUrlModel';
 
-export const ShortUrlModel = db.define('short_url', {
+
+class ShortUrlModel extends Model<ShortUrlModelAttributes, ShortUrlModelInput> implements ShortUrlModelAttributes {
+
+  public id!: number;
+  public originalUrl!: string;
+  public urlCode!: string;
+  public shortUrl!: string;
+
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+
+}
+
+ShortUrlModel.init({
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -21,4 +35,12 @@ export const ShortUrlModel = db.define('short_url', {
     type: DataTypes.STRING,
     allowNull: false
   },
-});
+
+},
+  {
+    timestamps: true,
+    sequelize: sequelizeConnection,
+    paranoid: true
+  })
+
+  export { ShortUrlModel}

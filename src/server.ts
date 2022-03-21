@@ -5,6 +5,8 @@ import { db } from './database/configuration';
 
 
 app.listen(variables.PORT, () => {
-  db.sync();
+  db.sync({
+    force: true,
+  });
   console.log(`My application is running ${variables.PORT}`)
 })

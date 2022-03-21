@@ -9,5 +9,8 @@ export const db = new Sequelize({
   username: variables.MYSQL_USER,
   password: variables.MYSQL_PASSWORD,
   database: variables.MYSQL_DATABASE,
+  logging: false,
 });
+
+export default db
 

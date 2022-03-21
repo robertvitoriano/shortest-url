@@ -5,22 +5,23 @@ class SequelizeRepository implements IUrlShortnerRepository {
 
   constructor(private shortUrlModel: typeof ShortUrlModel) { }
   async findOne(shortnedUrl: IShortenedUrl): Promise<IShortenedUrl> {
+
     const shortenedUrl = await this.shortUrlModel.findOne({
       where: shortnedUrl as WhereOptions
     })
-
+    if (!shortenedUrl) return null;
     return {
       originalUrl: shortenedUrl.originalUrl,
       urlCode: shortenedUrl.urlCode,
       shortUrl: shortenedUrl.shortUrl
     }
   }
- async create(shortnedUrl: IShortenedUrl): Promise<string> {
-   const shortnedUrlCreated = await ShortUrlModel.create({
+  async create(shortnedUrl: IShortenedUrl): Promise<string> {
+    const shortnedUrlCreated = await ShortUrlModel.create({
       originalUrl: shortnedUrl.originalUrl,
       urlCode: shortnedUrl.urlCode,
       shortUrl: shortnedUrl.shortUrl
-   });
+    });
     return shortnedUrlCreated.shortUrl;
   }
 }
