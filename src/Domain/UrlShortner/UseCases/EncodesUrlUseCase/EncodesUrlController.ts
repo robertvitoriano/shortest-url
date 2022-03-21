@@ -11,7 +11,7 @@ class EncodesUrlController {
     try {
       const resultString = await this.encodesUrlUseCase.execute(url)
 
-      return response.status(200).send({ message: 'Url Shortned', shortUrl: resultString });
+      return response.status(201).send({ message: 'Url Shortned', shortUrl: resultString });
     } catch (error) {
 
       return response.status(400).send({ errorMessage: error.message })

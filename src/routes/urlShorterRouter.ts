@@ -5,7 +5,7 @@ import { encodesUrlController } from "../Domain/UrlShortner/UseCases/EncodesUrlU
 
 const urlShorterRouter = Router()
 
-urlShorterRouter.post('/', encodesUrlController.handle)
+urlShorterRouter.post('/encode', encodesUrlController.handle)
 
 urlShorterRouter.get('/:baseUrl/:urlCode', decodesShortnedUrlController.handle)
 

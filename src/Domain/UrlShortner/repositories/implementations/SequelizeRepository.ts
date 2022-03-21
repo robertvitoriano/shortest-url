@@ -24,6 +24,10 @@ class SequelizeRepository implements IUrlShortnerRepository {
     });
     return shortnedUrlCreated.shortUrl;
   }
+
+  clear(): void {
+    this.shortUrlModel.destroy({ truncate: true, cascade: true })
+  }
 }
 
 export { SequelizeRepository };
